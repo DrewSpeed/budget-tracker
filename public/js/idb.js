@@ -1,6 +1,6 @@
 let db;
 
-const request = indexDB.open('budget_tracker', 1);
+const request = indexedDB.open('budget_tracker', 1);
 
 // starts function when database version changes
 request.onupgradeneeded = function(event) {
@@ -13,10 +13,7 @@ request.onupgradeneeded = function(event) {
 request.onsuccess = function(event) {
 
     db = event.target.result;
-    // check if app is online, if yes run uploadTransaction() to send all local db data to api
-    if (navigator.onLine) {
 
-    }
 };
 
 request.onerror = function(event) {
